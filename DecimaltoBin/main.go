@@ -5,6 +5,26 @@ import "fmt"
 func main() {
 	num := 250
 
+	bitsNo := 8
+	startIndex := -1
+
+	indexArray := []int{}
+
+	for range bitsNo{
+		startIndex++
+		indexArray = append(indexArray, startIndex)
+	}
+
+	for range indexArray{
+		for i := range indexArray{
+			if i+1 < len(indexArray) && indexArray[i] < indexArray[i+1]{
+				indexArray[i], indexArray[i+1] = indexArray[i+1], indexArray[i]
+			}
+		}
+	}
+
+	fmt.Println(indexArray)
+
 	indexArr := []int{7, 6, 5, 4, 3, 2, 1, 0}
 
 	res := ""
@@ -25,6 +45,10 @@ func main() {
 	fmt.Println(res)
 
 }
+
+
+
+
 
 func factorial(num, pow int) int {
 	if pow == 0 {
