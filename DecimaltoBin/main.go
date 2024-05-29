@@ -47,7 +47,39 @@ func main() {
 }
 
 
+func DecimalToBin(num, bitsNumb int) string {
+	startIndex := -1
 
+	indexArray := []int{}
+
+	for range bitsNumb{
+		startIndex++
+		indexArray = append(indexArray, startIndex)
+	}
+
+	for range indexArray{
+		for i := range indexArray{
+			if i+1 < len(indexArray) && indexArray[i] < indexArray[i+1]{
+				indexArray[i], indexArray[i+1] = indexArray[i+1], indexArray[i]
+			}
+		}
+	}
+
+	res := ""
+
+	for num > 0 {
+		for i := 0; i < len(indexArray); i++ {
+			if factorial(2, indexArray[i]) > num {
+				res += "0"
+			} else {
+				fmt.Println(num,"-",factorial(2,indexArray[i]))
+				num = num - factorial(2, indexArray[i])
+				res += "1"
+			}
+		}
+		// fmt.Println(num)
+	}
+}
 
 
 func factorial(num, pow int) int {
